@@ -1,0 +1,128 @@
+#Temperature Conversion
+
+def convert_cel_to_far(temp_cel):
+    """Return the Celcius temperature temp_cel ceoverted to Farenheit."""
+    temp_far = temp_cel * (9 / 5) + 32
+    return temp_far
+
+def convert_far_to_cel(temp_far):
+    """Return the Fahrenheit temperature temp_far converted to Celsius."""
+    temp_cel = (temp_far - 32) * (5 / 9)
+    return temp_cel
+
+# prompt the user to input a Fahrenheit temperature.
+temp_far = input("Enter a temperature in degrees F: ")
+
+# Convert the temperature to Celsius.
+# Note that 'temp_far' must be converted to a 'float'
+# since 'input() ' returns a string.
+temp_cel = convert_far_to_cel(float(temp_far))
+
+# Display the converted temperature
+print(f"{temp_far} degrees F = {temp_cel:.2f} degrees C")
+
+# Prompt the user to input a Celsius temperature.
+temp_cel = input("Enter a temperature in degrees C: ")
+
+# Convert the temperature to Fahreheit.
+temp_far = convert_cel_to_far(float(temp_cel))
+
+# Display the converted temperature
+print(f"{temp_cel} degrees C = {temp_far:.2f} degrees F")
+
+#Text conversion exercise 'L33t Sp3ak'
+
+a = input("Say something good!")
+print(a.find("good"))
+
+text = input("Enter some text:")
+text = text.replace("a", "4")
+text = text.replace("b", "8")
+text = text.replace("e", "3")
+text = text.replace("l","1")
+text = text.replace("o", "0")
+text = text.replace("s", "5")
+text = text.replace("t", "7")
+
+#Scope exercise
+
+x = 5
+
+def outer_func():
+    y = 3
+
+    def inner_func():
+        z = x + y
+        return z
+
+    return inner_func()
+
+print(text)
+
+#doubles exercise
+def doubles(num):
+    """Return the result of multiplying an input number by 2."""
+    return num * 2
+
+# Call doubles() to double the number 2 three times
+my_num = 2
+for i in range(0, 3):
+    my_num = doubles(my_num)
+    print(my_num)
+    
+# Calculate interest to track the growth of an investment
+
+def invest(amount, rate, years):
+    """Display year on year growth of an initial investment"""
+    for year in range(1, years + 1):
+        amount = amount * (1 + rate)
+        print(f"year {year}: ${amount:,.2f}")
+
+
+amount = float(input("Enter a principal amount: "))
+rate = float(input("Enter an annual rate of return: "))
+years = int(input("Enter a number of years: "))
+
+invest(amount, rate, years)
+
+#8.3 Review
+guess = int(input("I'm thinking of a number between 1 and 10. Guess which one: "))
+if guess == int(7):
+            print("You win! BARBER!")
+else:
+            print("You lose. BARBARIAN!")
+            
+#Sport Nested
+
+sport = input("Enter a sport: ")
+p1_score = int(input("Enter player 1 score: "))
+p2_score = int(input("Enter player 2 score: "))
+
+sport = sport.lower()
+if p1_score == p2_score:
+    print("The game is a draw.")
+elif (sport == "basketball" or sport == "golf"):
+    p1_wins_bball = (sport == "basketball") and (p1_score > p2_score)
+    p1_wins_golf = (sport == "golf") and (p1_score < p2_score)
+    p1_wins = p1_wins_bball or p1_wins_golf
+    if p1_wins:
+        print("Player 1 wins.")
+    else:
+        print("Player 2 wins.")
+else:
+    print("Unknown sport")
+    
+#5.5
+a = float(input("Enter a number: "))
+print(round(a, 2))
+
+b = float(input("Enter a number: "))
+print(abs(b))
+
+diff = (a-b)
+
+print(f"The difference between {a} and {b} is an integer? {diff.is_integer()}!")
+
+
+
+
