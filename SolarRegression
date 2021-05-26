@@ -1,0 +1,8 @@
+Cloud_cover = input("Enter your percentage of cloud cover for today ")
+
+Visability = input("Enter the Visability for today in miles ")
+
+solar_reg = (-263.1524 * int(Cloud_cover) + 2581.7071 * int(Visability))/1000
+
+print(f" You will generate an estimated {solar_reg} Kilowatts today")
+
