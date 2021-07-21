@@ -31,3 +31,5 @@ p.circle(df['hp'], df['mpg'], color=df['color'], size=10)
 # Specify the name of the output file and show the result
 output_file('auto-df.html')
 show(p)
+
+# Add circle glyphs to the figure p with the selected and non-selected properties
