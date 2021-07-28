@@ -268,3 +268,37 @@ select1.on_change('value', callback)
 # Create layout and add to current document
 layout = widgetbox(select1, select2)
 curdoc().add_root(layout)
+
+# Create a Button with label 'Update Data'
+button = Button(label='Update Data')
+
+# Define an update callback with no arguments: update
+def update():
+
+    # Compute new y values: y
+    y = np.sin(x) + np.random.random(N)
+
+    # Update the ColumnDataSource data dictionary
+    source.data = {'x': x, 'y': y}
+
+# Add the update callback to the button
+button.on_click(update)
+
+# Create layout and add to current document
+layout = column(widgetbox(button), plot)
+curdoc().add_root(layout)
+
+# Import CheckboxGroup, RadioGroup, Toggle from bokeh.models
+from bokeh.models import CheckboxGroup, RadioGroup, Toggle
+
+# Add a Toggle: toggle
+toggle = Toggle(button_type='success', label='Toggle button')
+
+# Add a CheckboxGroup: checkbox
+checkbox = CheckboxGroup(labels=['Option 1', 'Option 2', 'Option 3'])
+
+# Add a RadioGroup: radio
+radio = RadioGroup(labels=['Option 1', 'Option 2', 'Option 3'])
+
+# Add widgetbox(toggle, checkbox, radio) to the current document
+curdoc().add_root(widgetbox(toggle, checkbox, radio))
