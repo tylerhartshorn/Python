@@ -335,7 +335,7 @@ from bokeh.plotting import figure
 source = ColumnDataSource(data={
     'x'       : data.loc[1970].fertility,
     'y'       : data.loc[1970].life,
-    'column'      : data.loc[1970].Country,
+    'country'      : data.loc[1970].Country,
     'pop'      : (data.loc[1970].population / 20000000) + 2,
     'region'      : data.loc[1970].region,
 })
