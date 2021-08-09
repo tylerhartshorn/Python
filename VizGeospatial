@@ -73,3 +73,13 @@ plt.ylabel('latitude')
 plt.grid()
 plt.show()
 
+# Set legend style
+lgnd_kwds = {'title': 'School Districts',
+               'loc': 'upper left', 'bbox_to_anchor': (1, 1.03), 'ncol': 1}
+
+# Plot the school districts using Set3 colormap without the column argument
+school_districts.plot(cmap = 'Set3', legend = True, legend_kwds = lgnd_kwds)
+plt.xlabel('Latitude')
+plt.ylabel('Longitude')
+plt.title('Nashville School Districts')
+plt.show();
