@@ -83,3 +83,18 @@ plt.xlabel('Latitude')
 plt.ylabel('Longitude')
 plt.title('Nashville School Districts')
 plt.show();
+
+import geopandas as gpd
+import matplotlib.pyplot as plt
+
+# Read in the neighborhoods geojson file
+neighborhoods = gpd.read_file(neighborhoods_path)
+
+# Print the first few rows of neighborhoods
+print(neighborhoods.head())
+
+# Plot the neighborhoods, color according to name and use the Dark2 colormap
+neighborhoods.plot(column = 'name', cmap = 'Dark2')
+
+# Show the plot.
+plt.show()
