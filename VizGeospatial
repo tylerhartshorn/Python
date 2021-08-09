@@ -154,3 +154,17 @@ print(urban_poly_3857.head())
 # Print the area of urban_poly_3857 in kilometers squared
 area = urban_poly_3857.geometry.area / 10**6
 print('The area of the Urban Residents neighborhood is ', area[0], ' km squared')
+
+# Create downtown_center from urban_poly_3857
+downtown_center = urban_poly_3857.geometry.centroid
+
+# Print the type of downtown_center 
+print(type(downtown_center))
+
+# Plot the urban_poly_3857 as ax and add the center point
+ax = urban_poly_3857.plot(color = 'lightgreen')
+downtown_center.plot(ax = ax, color = 'black')
+plt.xticks(rotation = 45)
+
+# Show the plot
+plt.show()
