@@ -232,3 +232,18 @@ folium.GeoJson(urban_polygon.geometry).add_to(downtown_map)
 
 # Display the map
 display(downtown_map)
+
+# Iterate through the urban_art and print each part of tuple returned
+for row in urban_art.iterrows():
+  print('first part: ', row[0])
+  print('second part: ', row[1])
+
+# Create a location and marker with each iteration for the downtown_map
+for row in urban_art.iterrows():
+    row_values = row[1] 
+    location = [row_values['lat'], row_values['lng']]
+    marker = folium.Marker(location = location)
+    marker.add_to(downtown_map)
+
+# Display the map
+display(downtown_map)
