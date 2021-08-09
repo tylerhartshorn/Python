@@ -168,3 +168,19 @@ plt.xticks(rotation = 45)
 
 # Show the plot
 plt.show()
+
+# Import packages
+from shapely.geometry import Point
+import geopandas as gpd
+import pandas as pd
+
+# Create art_dist_meters using art and the geometry from art
+art_dist_meters = gpd.GeoDataFrame(art, geometry = art.geometry, crs = {'init': 'epsg:4326'})
+print(art_dist_meters.head(2))
+
+# Set the crs of art_dist_meters to use EPSG:3857
+art_dist_meters.geometry = art_dist_meters.geometry.to_crs(epsg = 3857)
+print(art_dist_meters.head(2))
+
+# Add a column to art_meters, center
+art_dist_meters['center'] = center_point
