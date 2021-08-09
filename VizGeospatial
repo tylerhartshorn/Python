@@ -131,3 +131,16 @@ neighborhood_art_grouped = neighborhood_art[['name', 'title']].groupby('name')
 # Aggregate the grouped data and count the artworks within each polygon
 print(neighborhood_art_grouped.agg('count').sort_values(by = 'title', ascending = False))
 
+# Create urban_art from neighborhood_art where the neighborhood name is Urban Residents
+urban_art = neighborhood_art.loc[neighborhood_art.name == 'Urban Residents']
+
+# Get just the Urban Residents neighborhood polygon and save it as urban_polygon
+urban_polygon = neighborhoods.loc[neighborhoods.name == "Urban Residents"]
+
+# Plot the urban_polygon as ax 
+ax = urban_polygon.plot(color = 'lightgreen')
+
+# Add a plot of the urban_art and show it
+urban_art.plot( ax = ax, column = 'type', legend = True);
+plt.show()
+
