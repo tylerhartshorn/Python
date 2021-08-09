@@ -247,3 +247,16 @@ for row in urban_art.iterrows():
 
 # Display the map
 display(downtown_map)
+
+# Print the urban_art titles
+print(urban_art.title)
+
+#Print the urban_art descriptions
+print(urban_art.desc)
+
+# Replace Nan and ' values in description
+urban_art.desc.fillna('', inplace = True)
+urban_art.desc = urban_art.desc.str.replace("'", "`")
+
+#Print the urban_art descriptions again
+print(urban_art.desc)
