@@ -213,3 +213,9 @@ urban_location = [urban_center.y, urban_center.x]
 
 # Print urban_location
 print(urban_location)
+
+# Construct a folium map with urban_location
+downtown_map = folium.Map(location = urban_location, zoom_start = 15)
+
+# Display the map
+display(downtown_map)
