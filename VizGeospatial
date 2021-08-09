@@ -184,3 +184,17 @@ print(art_dist_meters.head(2))
 
 # Add a column to art_meters, center
 art_dist_meters['center'] = center_point
+
+# Import package for pretty printing
+import pprint
+
+# Build a dictionary of titles and distances for Urban Residents art
+art_distances = {}
+for row in art_dist_meters.iterrows():
+    vals = row[1]
+    key = vals['title']
+    ctr = vals['center']
+    art_distances[key] = vals['geometry'].distance(ctr)
+
+# Pretty print the art_distances
+pprint.pprint(art_distances)
