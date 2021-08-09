@@ -198,3 +198,18 @@ for row in art_dist_meters.iterrows():
 
 # Pretty print the art_distances
 pprint.pprint(art_distances)
+
+# Print the head of the urban_polygon
+print(urban_polygon.head())
+
+# Create urban_center from the urban_polygon center
+urban_center = urban_polygon.centroid[0]
+
+# Print urban_center
+print(urban_center)
+
+# Create array for folium called urban_location
+urban_location = [urban_center.y, urban_center.x]
+
+# Print urban_location
+print(urban_location)
