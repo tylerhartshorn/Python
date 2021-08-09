@@ -219,3 +219,16 @@ downtown_map = folium.Map(location = urban_location, zoom_start = 15)
 
 # Display the map
 display(downtown_map)
+
+# Create array for called folium_loc from the urban_polygon center point
+point = urban_polygon.center[0]
+folium_loc = [point.y, point.x]
+
+# Construct a map from folium_loc: downtown_map
+downtown_map = folium.Map(location = folium_loc, zoom_start = 15)
+
+# Draw our neighborhood: Urban Residents
+folium.GeoJson(urban_polygon.geometry).add_to(downtown_map)
+
+# Display the map
+display(downtown_map)
