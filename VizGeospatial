@@ -292,3 +292,11 @@ print(permits_by_district.head(2))
 # Create permit_counts
 permit_counts = permits_by_district.groupby(['district']).size()
 print(permit_counts)
+
+# Polished choropleth of building permit_density
+districts_and_permits.plot(column = 'permit_density', cmap = 'BuGn', edgecolor = 'black', legend = True)
+plt.xlabel('longitude')
+plt.ylabel('latitude')
+plt.xticks(rotation = 'vertical')
+plt.title('2017 Building Project Density by Council District')
+plt.show();
