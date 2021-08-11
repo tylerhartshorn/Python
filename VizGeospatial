@@ -330,3 +330,19 @@ counts_df = permit_counts.to_frame()
 counts_df = counts_df.reset_index()
 counts_df.columns = ['district', 'bldg_permits']
 print(counts_df.head(2))
+
+# Merge permits_by_district and counts_df
+districts_and_permits = pd.merge(permits_by_district, counts_df, on = 'district')
+
+# Create permit_density column
+districts_and_permits['permit_density'] = districts_and_permits.apply(lambda row: row.bldg_permits / row.area, axis = 1)
+print(districts_and_permits.head(2))
+
+# Create choropleth plot
+districts_and_permits.plot(column = 'permit_density', cmap = 'OrRd', edgecolor = 'black', legend = True)
+
+# Add axis labels and title
+plt.xlabel('latitude')
+plt.ylabel('longitude')
+plt.title('2017 Building Project Density by Council District')
+plt.show()
