@@ -342,7 +342,7 @@ print(districts_and_permits.head(2))
 districts_and_permits.plot(column = 'permit_density', cmap = 'OrRd', edgecolor = 'black', legend = True)
 
 # Add axis labels and title
-plt.xlabel('latitude')
-plt.ylabel('longitude')
+plt.xlabel('longitude')
+plt.ylabel('latitude')
 plt.title('2017 Building Project Density by Council District')
 plt.show()
