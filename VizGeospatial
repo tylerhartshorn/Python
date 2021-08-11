@@ -300,3 +300,17 @@ plt.ylabel('latitude')
 plt.xticks(rotation = 'vertical')
 plt.title('2017 Building Project Density by Council District')
 plt.show();
+
+# Change council_districts crs to epsg 3857
+council_districts = council_districts.to_crs(epsg = 3857)
+print(council_districts.crs)
+print(council_districts.head())
+
+# Create area in square km
+sqm_to_sqkm = 10**6
+council_districts['area'] = council_districts.geometry.area / sqm_to_sqkm
+
+# Change council_districts crs back to epsg 4326
+council_districts = council_districts.to_crs(epsg = 4326)
+print(council_districts.crs)
+print(council_districts.head())
