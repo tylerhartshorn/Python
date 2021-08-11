@@ -346,3 +346,19 @@ plt.xlabel('longitude')
 plt.ylabel('latitude')
 plt.title('2017 Building Project Density by Council District')
 plt.show()
+
+# Create center column for the centroid of each district
+districts_and_permits['center'] = districts_and_permits.geometry.centroid
+
+# Build markers and popups
+for row in districts_and_permits.iterrows():
+    row_values = row[1]
+    center_point = row_values['center']
+    location = [center_point.y, center_point.x]
+    popup = ('Council District: ' + str(row_values['district']) + 
+             ';  ' + 'permits issued: ' + str(row_values['bldg_permits']))
+    marker = folium.Marker(location = location, popup = popup)
+    marker.add_to(m)
+    
+# Display the map
+display(m)
